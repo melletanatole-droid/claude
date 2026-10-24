@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Medicilline — L'éditeur IA de la médecine de demain</title>
+<meta name="description" content="Medicilline, éditions médicales depuis 2005. Des ouvrages augmentés, des prompts et des tutoriels pour intégrer l'IA dans la pratique médicale.">
+<link rel="icon" href="images/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --cream:#fefaf1;
+    --ink:#0f101f;
+    --muted:#f1eee7;
+    --muted-fg:#525466;
+    --line:rgba(15,16,31,.12);
+    --pink-deep:#e0389f;
+    --purple-deep:#7f45d6;
+    --pink:#ff6ec4;
+    --purple:#b57dff;
+    --blue:#4db0ff;
+    --orange:#ff944d;
+    --yellow:#ffdb4d;
+    --font-display:"Fraunces", Georgia, serif;
+    --font-sans:"Inter", system-ui, sans-serif;
+    --radius:12px;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{margin:0;background:var(--cream);color:var(--ink);font-family:var(--font-sans);font-size:16px;line-height:1.6;}
+  img{max-width:100%;display:block;}
+  a{color:inherit;}
+  .container{max-width:1120px;margin:0 auto;padding:0 24px;}
+  h1,h2,h3{font-family:var(--font-display);font-weight:600;letter-spacing:-0.01em;line-height:1.15;margin:0;}
+  h2{font-size:clamp(1.75rem,3vw,2.25rem);}
+  h3{font-size:1.15rem;}
+  p{margin:0;}
+  .eyebrow{font-size:.78rem;font-weight:600;text-transform:uppercase;letter-spacing:.1em;color:var(--purple-deep);margin-bottom:12px;}
+  .muted{color:var(--muted-fg);}
+  section{padding:88px 0;border-top:1px solid var(--line);}
+  .section-head{max-width:640px;margin-bottom:40px;}
+  .section-head p{margin-top:12px;color:var(--muted-fg);}
+
+  /* Boutons */
+  .btn{display:inline-flex;align-items:center;gap:8px;border:1px solid var(--ink);border-radius:999px;padding:11px 22px;font:600 .95rem var(--font-sans);text-decoration:none;cursor:pointer;transition:background .15s ease,color .15s ease;}
+  .btn-primary{background:var(--ink);color:#fff;}
+  .btn-primary:hover{background:#2a2b40;}
+  .btn-secondary{background:transparent;color:var(--ink);}
+  .btn-secondary:hover{background:#fff;}
+  .link{font-weight:600;text-decoration:none;color:var(--pink-deep);}
+  .link:hover{text-decoration:underline;text-underline-offset:3px;}
+
+  /* En-tête */
+  .site-header{position:sticky;top:0;z-index:20;background:rgba(254,250,241,.94);backdrop-filter:blur(8px);border-bottom:1px solid var(--line);}
+  .site-header .container{display:flex;align-items:center;gap:32px;height:72px;}
+  .brand img{height:40px;width:auto;border-radius:6px;}
+  .nav{display:flex;gap:28px;margin-left:auto;}
+  .nav a{text-decoration:none;font-size:.95rem;font-weight:500;color:var(--muted-fg);}
+  .nav a:hover{color:var(--ink);}
+  .header-cta{padding:9px 18px;}
+  .menu-btn{display:none;margin-left:auto;background:none;border:1px solid var(--line);border-radius:8px;width:42px;height:42px;cursor:pointer;align-items:center;justify-content:center;color:var(--ink);}
+
+  /* Hero */
+  .hero{padding:72px 0 80px;border-top:0;}
+  .hero .container{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);gap:56px;align-items:center;}
+  .hero h1{font-size:clamp(2.4rem,5vw,3.6rem);line-height:1.05;letter-spacing:-0.02em;}
+  .hero h1 em{font-style:italic;color:var(--purple-deep);}
+  .hero .lead{font-size:1.15rem;color:var(--muted-fg);margin-top:20px;max-width:520px;}
+  .hero-actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:32px;}
+  .stats{display:flex;flex-wrap:wrap;gap:40px;margin-top:48px;padding-top:24px;border-top:1px solid var(--line);}
+  .stats b{display:block;font-family:var(--font-display);font-weight:600;font-size:1.75rem;line-height:1.1;}
+  .stats span{font-size:.88rem;color:var(--muted-fg);}
+  .hero-books{position:relative;display:flex;justify-content:center;align-items:flex-end;gap:16px;}
+  .hero-books a{display:block;border-radius:8px;overflow:hidden;box-shadow:0 24px 48px -20px rgba(15,16,31,.35);transition:transform .25s ease;}
+  .hero-books a:hover{transform:translateY(-4px);}
+  .hero-books .main{width:58%;}
+  .hero-books .second{width:42%;margin-bottom:24px;}
+
+  /* Bandeau IA */
+  .ai-strip{padding:32px 0;background:#fff;}
+  .ai-strip .container{display:flex;flex-wrap:wrap;align-items:center;gap:12px 32px;}
+  .ai-strip p{font-size:.85rem;color:var(--muted-fg);}
+  .ai-strip ul{display:flex;flex-wrap:wrap;gap:8px 24px;list-style:none;margin:0;padding:0;font-weight:600;font-size:.95rem;}
+
+  /* Collections */
+  .collections{display:grid;grid-template-columns:1fr 1fr;gap:24px;}
+  .collection{display:grid;grid-template-columns:minmax(0,1fr) 140px;gap:24px;background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:32px;}
+  .collection img{border-radius:6px;box-shadow:0 12px 24px -12px rgba(15,16,31,.35);}
+  .collection .date{display:inline-block;font-size:.78rem;font-weight:600;color:var(--pink-deep);margin-bottom:10px;}
+  .collection h3{font-size:1.5rem;}
+  .collection p{margin-top:10px;color:var(--muted-fg);font-size:.95rem;}
+  .collection .link{display:inline-block;margin-top:20px;}
+
+  /* Ressources */
+  .resources{display:grid;grid-template-columns:1fr 1fr;gap:24px;}
+  .resource{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:32px;display:flex;flex-direction:column;}
+  .resource .count{font-size:.8rem;font-weight:600;color:var(--muted-fg);}
+  .resource h3{font-size:1.4rem;margin-top:6px;}
+  .resource > p{margin-top:10px;color:var(--muted-fg);font-size:.95rem;}
+  .resource ul{list-style:none;margin:24px 0;padding:0;border-top:1px solid var(--line);}
+  .resource li a{display:block;padding:14px 0;border-bottom:1px solid var(--line);text-decoration:none;}
+  .resource li a:hover strong{color:var(--pink-deep);}
+  .resource li small{display:block;font-size:.72rem;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--muted-fg);}
+  .resource li strong{display:block;font-weight:600;margin-top:2px;}
+  .resource li span{display:block;font-size:.88rem;color:var(--muted-fg);margin-top:2px;}
+  .resource .foot{margin-top:auto;font-size:.85rem;color:var(--muted-fg);}
+  .resource .foot .btn{margin-bottom:14px;}
+
+  /* Catalogue */
+  .catalogue-head{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap;margin-bottom:32px;}
+  .catalogue-head .section-head{margin-bottom:0;}
+  .filters{display:flex;gap:8px;flex-wrap:wrap;}
+  .filter{border:1px solid var(--line);background:#fff;border-radius:999px;padding:7px 16px;font:500 .88rem var(--font-sans);color:var(--ink);cursor:pointer;}
+  .filter[aria-pressed="true"]{background:var(--ink);border-color:var(--ink);color:#fff;}
+  .books{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:24px;}
+  .book{background:#fff;border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;display:flex;flex-direction:column;}
+  .book[hidden]{display:none;}
+  .book .cover{aspect-ratio:4/3;background:var(--muted);display:flex;align-items:center;justify-content:center;padding:20px;border-bottom:1px solid var(--line);position:relative;}
+  .book .cover img{height:100%;width:auto;object-fit:contain;border-radius:3px;box-shadow:0 8px 16px -8px rgba(15,16,31,.4);}
+  .book .cover .placeholder{font-family:var(--font-display);font-weight:600;font-size:1.2rem;line-height:1.2;text-align:center;color:var(--ink);padding:0 12px;border-left:4px solid var(--c,var(--purple));}
+  .book.out .cover img{filter:grayscale(1);opacity:.8;}
+  .book .body{padding:20px;display:flex;flex-direction:column;gap:6px;flex:1;}
+  .book .meta{font-size:.78rem;color:var(--muted-fg);}
+  .book h3{font-size:1.1rem;}
+  .book p{font-size:.9rem;color:var(--muted-fg);}
+  .book .bottom{margin-top:auto;padding-top:14px;display:flex;justify-content:space-between;align-items:center;gap:12px;font-size:.85rem;}
+  .tag{font-size:.75rem;font-weight:600;padding:3px 10px;border-radius:999px;background:var(--muted);color:var(--muted-fg);white-space:nowrap;}
+  .tag.soon{background:#f4ecff;color:var(--purple-deep);}
+  .tag.out{background:var(--muted);}
+  .price{font-weight:600;}
+
+  /* Équipe */
+  .team{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;}
+  .member img,.member .initials{width:100%;aspect-ratio:1/1;object-fit:cover;border-radius:var(--radius);background:var(--muted);}
+  .member .initials{display:flex;align-items:center;justify-content:center;font-family:var(--font-display);font-size:2.4rem;color:var(--muted-fg);}
+  .member h3{margin-top:16px;font-size:1.05rem;}
+  .member .role{font-size:.8rem;font-weight:600;color:var(--purple-deep);margin-top:2px;}
+  .member p{font-size:.88rem;color:var(--muted-fg);margin-top:8px;}
+  .member a{font-size:.85rem;}
+
+  /* Histoire */
+  .timeline{display:grid;grid-template-columns:1fr 1fr;gap:24px;}
+  .milestone{border-left:2px solid var(--ink);padding:4px 0 4px 24px;}
+  .milestone b{font-family:var(--font-display);font-weight:600;font-size:2.4rem;line-height:1;}
+  .milestone h3{margin-top:10px;font-family:var(--font-sans);font-size:.85rem;text-transform:uppercase;letter-spacing:.08em;}
+  .milestone p{margin-top:8px;color:var(--muted-fg);max-width:420px;}
+
+  /* Contact */
+  .contact{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start;}
+  .contact-card{background:var(--ink);color:#fff;border-radius:var(--radius);padding:40px;}
+  .contact-card p{color:rgba(255,255,255,.75);margin-top:12px;}
+  .contact-card .email{display:block;font-family:var(--font-display);font-size:1.5rem;margin-top:24px;text-decoration:none;}
+  .contact-card .btn{margin-top:24px;background:#fff;color:var(--ink);border-color:#fff;}
+  .profiles{display:flex;flex-wrap:wrap;gap:8px;margin-top:20px;}
+  .newsletter-box{margin-top:32px;padding:24px;border:1px solid var(--line);border-radius:var(--radius);background:#fff;}
+  .newsletter-box h3{font-size:1.1rem;}
+  .newsletter-box p{margin-top:6px;font-size:.92rem;color:var(--muted-fg);}
+  .newsletter-box .btn{margin-top:16px;}
+
+  /* Pied de page */
+  footer{border-top:1px solid var(--line);padding:40px 0;font-size:.88rem;color:var(--muted-fg);}
+  footer .container{display:flex;justify-content:space-between;align-items:center;gap:24px;flex-wrap:wrap;}
+  footer .left{display:flex;align-items:center;gap:12px;}
+  footer img{height:32px;width:auto;border-radius:4px;}
+  footer nav{display:flex;flex-wrap:wrap;gap:20px;}
+  footer nav a{text-decoration:none;}
+  footer nav a:hover{color:var(--ink);}
+
+  /* Responsive */
+  @media (max-width:960px){
+    .nav,.header-cta{display:none;}
+    .menu-btn{display:flex;}
+    .site-header.open .nav{display:flex;flex-direction:column;gap:0;position:absolute;top:72px;left:0;right:0;background:var(--cream);border-bottom:1px solid var(--line);padding:8px 24px 16px;}
+    .site-header.open .nav a{padding:12px 0;border-bottom:1px solid var(--line);font-size:1rem;}
+    .hero .container,.collections,.resources,.contact{grid-template-columns:minmax(0,1fr);}
+    .hero-books{max-width:440px;margin:0 auto;}
+    .team{grid-template-columns:repeat(2,1fr);}
+  }
+  @media (max-width:600px){
+    .container{padding:0 16px;}
+    section{padding:64px 0;}
+    .hero{padding:48px 0 56px;}
+    .collection{grid-template-columns:minmax(0,1fr);padding:24px;}
+    .collection img{width:140px;}
+    .resource,.contact-card{padding:24px;}
+    .timeline{grid-template-columns:minmax(0,1fr);}
+    .team{grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:16px;}
+    .stats{gap:24px;}
+  }
+</style>
+</head>
+<body>
+
+<header class="site-header" id="header">
+  <div class="container">
+    <a class="brand" href="#top" aria-label="Medicilline — accueil"><img src="images/logo.jpg" alt="Medicilline" width="64" height="40"></a>
+    <nav class="nav" id="nav" aria-label="Navigation principale">
+      <a href="#collections">Collections</a>
+      <a href="#catalogue">Catalogue</a>
+      <a href="#ressources">Prompts &amp; tutoriels</a>
+      <a href="#equipe">La maison</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <a class="btn btn-primary header-cta" href="#catalogue">Voir les livres</a>
+    <button class="menu-btn" id="menu-btn" aria-label="Menu" aria-expanded="false" aria-controls="nav">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+    </button>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="container">
+      <div>
+        <p class="eyebrow">Éditions médicales — depuis 2005</p>
+        <h1>L'éditeur <em>IA</em> de la médecine de demain.</h1>
+        <p class="lead">Des ouvrages augmentés avec une hiérarchie visuelle et de l'interactivité pour aller à l'essentiel et gagner du temps.</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#catalogue">Découvrir le catalogue</a>
+          <a class="btn btn-secondary" href="#ressources">Prompts &amp; tutoriels gratuits</a>
+        </div>
+        <div class="stats">
+          <div><b>4</b><span>titres au nouveau catalogue</span></div>
+          <div><b>22</b><span>années d'édition</span></div>
+          <div><b>100&nbsp;%</b><span>auteurs-soignants</span></div>
+        </div>
+      </div>
+      <div class="hero-books">
+        <a class="main" href="#collections" aria-label="Collection IA Minute"><img src="images/ia-minute-cover.jpg" alt="Couverture de L'IA Minute pour le médecin" width="700" height="775"></a>
+        <a class="second" href="#collections" aria-label="Digidoc 2030"><img src="images/digidoc-2030-cover.jpg" alt="Couverture de Digidoc 2030" width="700" height="867"></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- IA décryptées -->
+  <div class="ai-strip">
+    <div class="container">
+      <p>Les IA décryptées dans nos ouvrages</p>
+      <ul>
+        <li>OpenAI</li><li>Claude</li><li>Gemini</li><li>Mistral AI</li><li>Copilot</li><li>Llama</li><li>Hugging Face</li><li>Perplexity</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Collections -->
+  <section id="collections">
+    <div class="container">
+      <div class="section-head">
+        <p class="eyebrow">Nouveautés</p>
+        <h2>Lancement de deux collections</h2>
+      </div>
+      <div class="collections">
+        <article class="collection">
+          <div>
+            <span class="date">Sortie le 13 novembre</span>
+            <h3>IA Minute</h3>
+            <p>Former rapidement les médecins à la maîtrise des principales IA, «&nbsp;hands on&nbsp;». La collection explique, en visuels, comment utiliser l'intelligence artificielle dans la pratique quotidienne.</p>
+            <a class="link" href="https://medicilline.ai/ia-minute">En savoir plus sur IA Minute →</a>
+          </div>
+          <img src="images/ia-minute-cover.jpg" alt="" width="140" height="155" loading="lazy">
+        </article>
+        <article class="collection">
+          <div>
+            <span class="date">Sortie le 12 décembre</span>
+            <h3>Digidoc 2030</h3>
+            <p>Les 18 ruptures technologiques, en cours, qui réinventent la médecine. 133 visuels pédagogiques pour comprendre les innovations d'ici 2030. Signé Dr Guillaume Zagury.</p>
+            <a class="link" href="https://medicilline.ai/digidoc-2030">En savoir plus sur Digidoc 2030 →</a>
+          </div>
+          <img src="images/digidoc-2030-cover.jpg" alt="" width="140" height="173" loading="lazy">
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Ressources gratuites -->
+  <section id="ressources">
+    <div class="container">
+      <div class="section-head">
+        <p class="eyebrow">Accès libre — sans compte, sans achat</p>
+        <h2>Deux bibliothèques ouvertes, avant même d'ouvrir un livre.</h2>
+        <p>Les prompts qu'on copie le matin, et les fiches qui apprennent le geste. Elles sont en ligne, datées, et disent ce qu'elles ne savent pas faire.</p>
+      </div>
+      <div class="resources">
+        <article class="resource">
+          <span class="count">14 prompts · 7 catégories</span>
+          <h3>La banque de prompts</h3>
+          <p>Écrits pour un exercice médical, à copier tels quels. Chacun porte ses champs à remplir, son mode d'emploi en quatre gestes, et la liste de ce qu'il ne fait pas.</p>
+          <ul>
+            <li><a href="https://medicilline.ai/prompts/depersonnaliser-avant-de-coller"><small>Le socle</small><strong>Dépersonnaliser avant de coller</strong><span>Un texte qui garde toute sa valeur clinique, et plus rien qui identifie.</span></a></li>
+            <li><a href="https://medicilline.ai/prompts/cadrer-l-assistant"><small>Le socle</small><strong>Cadrer l'assistant, une fois pour toutes</strong><span>Qu'il réponde comme à un confrère, et marque ce dont il n'est pas sûr.</span></a></li>
+            <li><a href="https://medicilline.ai/prompts/contradicteur-diagnostique"><small>Pendant la consultation</small><strong>Le contradicteur diagnostique</strong><span>Une IA qui ne cherche que ce qui contredit votre hypothèse.</span></a></li>
+          </ul>
+          <div class="foot">
+            <a class="btn btn-primary" href="https://medicilline.ai/prompts">Ouvrir la banque de prompts</a>
+            <p>On commence par « Le socle » : dépersonnaliser un texte avant de le coller.</p>
+          </div>
+        </article>
+        <article class="resource">
+          <span class="count">4 fiches pas-à-pas</span>
+          <h3>La bibliothèque de tutoriels</h3>
+          <p>ChatGPT, Claude, Claude Cowork, NotebookLM — captures réelles, datées, neutralisées. À lire en ligne ou à imprimer, pour un médecin qui a quinze minutes.</p>
+          <ul>
+            <li><a href="https://medicilline.ai/tutoriels/maitriser-chatgpt"><small>Débutant · 20 min</small><strong>Maîtriser ChatGPT</strong><span>Une réponse exploitable, sourcée, et que l'on sait vérifier.</span></a></li>
+            <li><a href="https://medicilline.ai/tutoriels/maitriser-claude"><small>Débutant · 20 min</small><strong>Maîtriser Claude</strong><span>Régler l'outil avant d'écrire, et obtenir un livrable.</span></a></li>
+            <li><a href="https://medicilline.ai/tutoriels/claude-cowork"><small>Intermédiaire · 20 min</small><strong>Travailler avec Claude Cowork</strong><span>Décrire un travail, valider, récupérer le fichier.</span></a></li>
+            <li><a href="https://medicilline.ai/tutoriels/maitriser-notebooklm"><small>Débutant · 18 min</small><strong>Maîtriser NotebookLM</strong><span>Des réponses sourcées, vérifiables ligne à ligne.</span></a></li>
+          </ul>
+          <div class="foot">
+            <a class="btn btn-primary" href="https://medicilline.ai/tutoriels">Ouvrir les tutoriels</a>
+            <p>Chaque fiche porte la date de ses captures : en cas d'écart, c'est votre écran qui a raison.</p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Catalogue -->
+  <section id="catalogue">
+    <div class="container">
+      <div class="catalogue-head">
+        <div class="section-head">
+          <p class="eyebrow">Catalogue 2026</p>
+          <h2>Apprendre vite, bien, et en couleur.</h2>
+        </div>
+        <div class="filters" role="group" aria-label="Filtrer le catalogue">
+          <button class="filter" data-filter="all" aria-pressed="true">Tous</button>
+          <button class="filter" data-filter="Internat & ECNi" aria-pressed="false">Internat &amp; ECNi</button>
+          <button class="filter" data-filter="Grand public" aria-pressed="false">Grand public</button>
+        </div>
+      </div>
+
+      <div class="books" id="books"></div>
+    </div>
+  </section>
+
+  <!-- Équipe -->
+  <section id="equipe">
+    <div class="container">
+      <div class="section-head">
+        <p class="eyebrow">La maison</p>
+        <h2>Notre équipe</h2>
+        <p>Quatre profils, une même exigence : rendre la médecine claire, utile et bien construite — sur papier comme en ligne.</p>
+      </div>
+      <div class="team">
+        <article class="member">
+          <img src="images/guillaume-zagury.webp" alt="Dr Guillaume Zagury" loading="lazy">
+          <h3>Dr Guillaume Zagury</h3>
+          <p class="role">PDG · Auteur · Consultant</p>
+          <p>Médecin, entrepreneur et auteur depuis 2003. Fondateur de Medicilline, il conçoit la ligne éditoriale et porte la vision de la maison.</p>
+        </article>
+        <article class="member">
+          <img src="images/anatole-mellet.png" alt="Anatole Mellet" loading="lazy">
+          <h3>Anatole Mellet</h3>
+          <p class="role">Développeur · Auteur · Stratégie marketing</p>
+          <p>Il construit le site et les outils digitaux de Medicilline et pilote la stratégie marketing.</p>
+          <a class="link" href="mailto:anatole@medicilline.ai">anatole@medicilline.ai</a>
+        </article>
+        <article class="member">
+          <img src="images/tristan-morin.png" alt="Tristan Morin" loading="lazy">
+          <h3>Tristan Morin</h3>
+          <p class="role">Maquettiste · Directeur multimédia</p>
+          <p>Il met en page les ouvrages et façonne l'image de Medicilline : vidéo, motion design et contenus visuels.</p>
+        </article>
+        <article class="member">
+          <div class="initials" aria-hidden="true">EB</div>
+          <h3>Elisa Boyko</h3>
+          <p class="role">Directrice commerciale</p>
+          <p>Elle développe les partenariats, le réseau de libraires et la diffusion des ouvrages Medicilline.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Histoire -->
+  <section id="histoire">
+    <div class="container">
+      <div class="section-head">
+        <p class="eyebrow">Notre histoire</p>
+        <h2>20 ans d'édition médicale, un seul virage.</h2>
+      </div>
+      <div class="timeline">
+        <div class="milestone">
+          <b>2005</b>
+          <h3>Lancement</h3>
+          <p>Des livres pensés par des soignants, pour des soignants : ECNi, internat, infirmier, mémos, protocoles.</p>
+        </div>
+        <div class="milestone">
+          <b>2026</b>
+          <h3>100 % tech et IA</h3>
+          <p>Chaque ouvrage devient augmenté : un QR code, et le livre continue en ligne avec les outils IA testés au cabinet.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact">
+    <div class="container contact">
+      <div>
+        <p class="eyebrow">Contact</p>
+        <h2>Une question, une commande, un projet ?</h2>
+        <p class="muted" style="margin-top:12px">Libraires, écoles d'infirmiers, facultés, hôpitaux, auteurs, presse : nous répondons sous 48&nbsp;h ouvrées.</p>
+        <div class="profiles">
+          <span class="tag">Auteur</span><span class="tag">Presse &amp; média</span><span class="tag">Libraire / partenaire</span><span class="tag">Créateur</span>
+        </div>
+        <div class="newsletter-box" id="newsletter">
+          <h3>La newsletter Medicilline</h3>
+          <p>Ce qui change vraiment en médecine, décrypté chaque semaine. Gratuit.</p>
+          <a class="btn btn-secondary" href="https://medicilline.ai/#newsletter">S'inscrire</a>
+          <a class="link" style="margin-left:12px" href="https://medicilline.ai/blog">Lire le blog →</a>
+        </div>
+      </div>
+      <div class="contact-card">
+        <h3 style="font-size:1.4rem">Écrire à Medicilline</h3>
+        <p>Précisez qui vous êtes et l'objet de votre demande dans votre message.</p>
+        <a class="email" href="mailto:contact@medicilline.ai">contact@medicilline.ai</a>
+        <a class="btn" href="mailto:contact@medicilline.ai">Envoyer un e-mail</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="container">
+    <div class="left">
+      <img src="images/logo.jpg" alt="Medicilline" width="52" height="32">
+      <span>Éditions médicales · depuis 2005</span>
+    </div>
+    <nav aria-label="Pied de page">
+      <a href="https://medicilline.ai/prompts">Prompts</a>
+      <a href="https://medicilline.ai/tutoriels">Tutoriels</a>
+      <a href="#catalogue">Catalogue 2026</a>
+      <a href="https://medicilline.ai/academie">Académie</a>
+      <a href="https://medicilline.ai/blog">Blog</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+</footer>
+
+<script>
+  // Données du catalogue (reprises de src/routes/index.tsx du projet Lovable)
+  const BOOKS = [
+    { title:"IA Minute : IA Générative pour les médecins", author:"Dr Guillaume Zagury", category:"Grand public", desc:"Les bases de l'IA générative en clinique : rédaction, synthèses, aide au diagnostic, prompts prêts à l'emploi.", cover:"images/ia-minute-cover.jpg", soon:"Sortie le 13 novembre", c:"var(--pink)" },
+    { title:"Digidoc 2030", author:"Dr Guillaume Zagury", category:"Grand public", desc:"18 ruptures technologiques qui vont changer la médecine d'ici 2030. 133 visuels pédagogiques.", cover:"images/digidoc-2030-cover.jpg", soon:"Sortie le 12 décembre", c:"var(--blue)" },
+    { title:"Medi-Mémo-Minute", author:"Dr Guillaume Zagury", category:"Internat & ECNi", price:24.9, isbn:"9782915220964", amazon:"https://www.amazon.fr/dp/2915220964", desc:"666 astuces mnémotechniques pour booster la mémorisation. Le compagnon de poche.", cover:"https://images-na.ssl-images-amazon.com/images/P/2915220964.jpg", c:"var(--yellow)" },
+    { title:"COVID XXI — Première pandémie de l'ère digitale", author:"Dr Guillaume Zagury", category:"Grand public", price:20, isbn:"9782492552052", desc:"166 visuels inédits. Une grille de lecture techno-scientifique d'un crash test mondial.", cover:"images/covid-xxi-cover.png", out:true, c:"var(--purple)" },
+    { title:"Santé publique — Médecine du travail, médecine légale", author:"Dr Guillaume Zagury & Mickaël Benzaqui", category:"Internat & ECNi", isbn:"9782915220391", desc:"Collection 100 % ECN. Tout le module 1 : cours et fiches flash, annales corrigées, mémos et astuces de conférencier.", cover:"images/sante-publique-cover.jpg", out:true, c:"var(--orange)" },
+    { title:"Baby Mémo — 100 % photos, 100 % pratique", author:"Dr Guillaume Zagury & Anne Lemmens", category:"Grand public", price:9.9, isbn:"9782915220230", amazon:"https://www.amazon.fr/dp/2915220239", desc:"L'intégrale de l'éveil psychomoteur de bébé, de J1 à J365, racontée en photos. 453 pages.", cover:"images/baby-memo-cover.jpg", c:"var(--orange)" },
+    { title:"IA Minute : l'automatisation pour les médecins", author:"Dr Guillaume Zagury", category:"Grand public", desc:"Automatiser le quotidien : courriers, comptes rendus, veille, prise de rendez-vous et suivi patient.", soon:"À paraître", c:"var(--yellow)" },
+    { title:"IA Minute ORL", author:"Dr Guillaume Zagury", category:"Grand public", desc:"Otoscopie assistée, audiométrie, dépistage des lésions laryngées, dictée opératoire automatisée.", soon:"À paraître", c:"var(--blue)" },
+    { title:"IA Minute Gynécologie", author:"Dr Guillaume Zagury", category:"Grand public", desc:"Échographie augmentée, dépistage cervical, suivi de grossesse, tri des consultations.", soon:"À paraître", c:"var(--purple)" },
+    { title:"IA Minute Psychiatrie", author:"Dr Guillaume Zagury", category:"Grand public", desc:"Entretien assisté, repérage du risque suicidaire, aide à la prescription, éthique et limites.", soon:"À paraître", c:"var(--orange)" },
+  ];
+
+  const esc = s => s.replace(/[&<>"]/g, ch => ({ "&":"&amp;", "<":"&lt;", ">":"&gt;", '"':"&quot;" }[ch]));
+  const euro = n => n.toFixed(2).replace(".", ",") + " €";
+
+  function bookHTML(b){
+    const cover = b.cover
+      ? `<img src="${b.cover}" alt="Couverture — ${esc(b.title)}" loading="lazy" onerror="this.replaceWith(Object.assign(document.createElement('div'),{className:'placeholder',textContent:this.alt.replace('Couverture — ','')}))">`
+      : `<div class="placeholder" style="--c:${b.c}">${esc(b.title)}</div>`;
+    let action;
+    if (b.out) action = `<span class="tag out">Épuisé</span>`;
+    else if (b.soon) action = `<a class="link" href="mailto:contact@medicilline.ai?subject=${encodeURIComponent("Être prévenu — " + b.title)}">Être prévenu →</a>`;
+    else if (b.amazon) action = `<a class="link" href="${b.amazon}" target="_blank" rel="noopener noreferrer">Acheter →</a>`;
+    else action = "";
+    const left = b.soon ? `<span class="tag soon">${b.soon}</span>` : (b.price ? `<span class="price">${euro(b.price)}</span>` : "<span></span>");
+    return `<article class="book${b.out ? " out" : ""}" data-category="${esc(b.category)}">
+      <div class="cover">${cover}</div>
+      <div class="body">
+        <span class="meta">${esc(b.category)} · ${esc(b.author)}</span>
+        <h3>${esc(b.title)}</h3>
+        <p>${esc(b.desc)}</p>
+        <div class="bottom">${left}${action}</div>
+      </div>
+    </article>`;
+  }
+
+  const grid = document.getElementById("books");
+  grid.innerHTML = BOOKS.map(bookHTML).join("");
+
+  document.querySelectorAll(".filter").forEach(btn => {
+    btn.addEventListener("click", () => {
+      document.querySelectorAll(".filter").forEach(b => b.setAttribute("aria-pressed", b === btn));
+      const f = btn.dataset.filter;
+      grid.querySelectorAll(".book").forEach(card => { card.hidden = f !== "all" && card.dataset.category !== f; });
+    });
+  });
+
+  // Menu mobile
+  const header = document.getElementById("header");
+  const menuBtn = document.getElementById("menu-btn");
+  menuBtn.addEventListener("click", () => {
+    const open = header.classList.toggle("open");
+    menuBtn.setAttribute("aria-expanded", open);
+  });
+  document.querySelectorAll("#nav a").forEach(a => a.addEventListener("click", () => {
+    header.classList.remove("open");
+    menuBtn.setAttribute("aria-expanded", false);
+  }));
+</script>
+</body>
+</html>

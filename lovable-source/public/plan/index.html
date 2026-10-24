@@ -1,0 +1,184 @@
+<!doctype html><html lang="fr"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Social Médicilline — tableau de bord</title>
+<link rel="stylesheet" href="_doc.css"></head><body>
+
+<nav class="nav"><div class="in">
+  <span class="brand"><img src="posts-retour/visuels/img/avatar.png" alt="">Social Médicilline</span>
+  <a href="index.html" class="on">Tableau de bord</a>
+  <a href="marque.html">Marque &amp; DA</a>
+  <a href="plan.html">Plan</a>
+  <a href="assets.html">Assets</a>
+</div></nav>
+
+<div class="wrap">
+
+<div class="hero">
+  <div class="blob"></div>
+  <span class="eyebrow">Phase 0 · le retour · 31 août → 27 septembre 2026</span>
+  <h1>Deux réseaux.<br>Trois pages.</h1>
+  <p class="lead">Le plan tenait sur trois réseaux et six documents Markdown : il tient maintenant
+  sur <strong>LinkedIn et X</strong>, et sur trois pages.
+  <strong><a href="plan.html">Plan</a></strong> = tous les posts qu'on sort, jour par jour, avec le
+  texte à copier et le fichier à joindre. <strong><a href="marque.html">Marque &amp; DA</a></strong> =
+  ce à quoi tout doit ressembler et ce que disent les profils.
+  <strong><a href="assets.html">Assets</a></strong> = l'inventaire de ce qui est prêt.</p>
+</div>
+
+<section>
+  <div class="grid g4">
+    <div class="kpi"><div class="n">9</div><div class="l">posts, chacun en visuel 4:5, visuel 16:9 et vidéo</div></div>
+    <div class="kpi"><div class="n">9</div><div class="l">vidéos 4:5 neuves, 27 à 40 s, deux pièces de données et le logo dans chacune</div></div>
+    <div class="kpi"><div class="n">51</div><div class="l">publications datées sur 28 jours</div></div>
+    <div class="kpi"><div class="n">0</div><div class="l">story à produire — Instagram est abandonné</div></div>
+  </div>
+</section>
+
+<section>
+  <h2><span class="num">0.</span> Ce qui vient de changer</h2>
+  <div class="banner">
+    <h3>Instagram est abandonné, et le plan a été refait autour de ce choix.</h3>
+    <p>Trois réseaux tenus à moitié valent moins qu'un réseau tenu. Instagram demandait deux à trois
+    stories par jour tous les jours, une découpe verticale de chaque vidéo, une couverture par Reel
+    et un troisième export de chaque visuel — pour l'audience la moins susceptible de s'inscrire à
+    une newsletter médicale.</p>
+  </div>
+  <div class="grid g3">
+    <div class="card">
+      <h3>Un seul plan</h3>
+      <p>Les six Markdown de stratégie et les quatre fichiers de posts se contredisaient. Tout est
+      dans <a href="plan.html">une page</a> : le calendrier avec, à chaque ligne, le texte à copier.
+      Les anciens fichiers sont dans <code>_archive/</code>, supprimable en entier.</p>
+    </div>
+    <div class="card">
+      <h3>Une vidéo par post</h3>
+      <p>Neuf vidéos 4:5 de 27 à 40 s, montage de publicité, sous-titres incrustés, logo à l’image, voix off sur les quatre essentielles, poster fourni.
+      Fonds pris dans les six de la charte — <strong>aucun fond sombre</strong> — et un graphique
+      de <code>medi_viz</code> dans chacune. Le même fichier part sur LinkedIn et sur X.</p>
+    </div>
+    <div class="card">
+      <h3>Les visuels repassés</h3>
+      <p>Les 18 exports ont été refaits. Trois quadrants coupés dans le 16:9 du post 9 et un
+      sous-titre coupé dans celui du post 1 sont corrigés, et un contrôle automatique
+      (<code>check_visuels.py</code>) empêche que ça revienne.</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2><span class="num">1.</span> Avant le premier post</h2>
+  <p>Aucun contenu ne convertit tant que ces cinq points ne sont pas faits. Compter une demi-journée.
+  Le point de la date de fondation est <strong>réglé</strong> : 2002, 29 titres, 24 ans.</p>
+  <div class="card">
+    <ul style="list-style:none;margin-left:0;">
+      <li>☐ <b>Revendiquer et mettre à jour les deux profils</b> — page LinkedIn et compte X :
+          même handle, avatar, bannière, bio. Textes exacts dans
+          <a href="marque.html#bios">Marque &amp; DA § Bios</a>.</li>
+      <li>☐ <b>Ajouter les liens sociaux sur medicilline.ai</b> — le site n'en contient aucun.
+          Le circuit est coupé dans les deux sens.</li>
+      <li>☐ <b>Publier les 3 newsletters déjà écrites sur le blog</b>, qui est vide. C'est ce que lit
+          quelqu'un qui n'a pas encore assez confiance pour donner son email.</li>
+      <li>☐ <b>Activer le compte personnel du Dr Zagury</b> sur LinkedIn.</li>
+      <li>☐ <b>Valider les 5 publicités</b> (<code>pub fini/à valider/</code> → <code>validé/</code>)
+          et produire le recadrage 4:5 de celle du jour 19.</li>
+    </ul>
+  </div>
+</section>
+
+<section>
+  <h2><span class="num">2.</span> Les trois choses à ne pas oublier</h2>
+  <div class="grid g3">
+    <div class="card">
+      <h3>L'objectif est l'email</h3>
+      <p>Une seule métrique décide si la phase avance : <strong>le nombre d'inscrits newsletter par
+      semaine</strong>. Les likes sont un indicateur avancé, pas un résultat.</p>
+    </div>
+    <div class="card">
+      <h3>L'ancienneté est l'atout</h3>
+      <p>Le mauvais récit : « on est nouveaux ». Le bon : <em>éditions médicales depuis 2002,
+      29 titres, et on vient de tout reprendre à zéro</em>. La rupture ne vaut que par les 24 ans derrière.</p>
+    </div>
+    <div class="card">
+      <h3>Coloré <i>et</i> explicatif</h3>
+      <p>Chaque visuel doit arrêter le scroll <strong>et</strong> enseigner quelque chose en 3 secondes.
+      Beau mais vide = échec. Instructif mais terne = échec.</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2><span class="num">3.</span> Le jour 1, en un coup d'œil</h2>
+  <p>Chaque ligne du plan dit le réseau, le <strong>format exact</strong>, le <strong>fichier à
+  joindre</strong>, et contient le <strong>texte à copier-coller</strong>.</p>
+  <div class="legend"><span class="lbl">Formats</span>
+    <span class="fmt post">Post image</span>
+    <span class="fmt carrousel">Carrousel</span>
+    <span class="fmt thread">Thread</span>
+    <span class="fmt video">Vidéo native</span>
+    <span class="fmt texte">Texte seul</span>
+  </div>
+  <div class="day">
+    <div class="h">Jour 1 — lundi 31 août <span class="badge rose">le manifeste</span></div>
+    <div class="slot"><span class="t">8h30</span><span class="net">LinkedIn page</span>
+      <span class="f"><span class="fmt post">Post image</span></span>
+      <span class="what"><b>Post 1 — le manifeste.</b> À épingler.
+        <span class="med"><span class="mtag img">Image 4:5</span><code>01-manifeste-4x5.png</code></span></span></div>
+    <div class="slot"><span class="t">12h00</span><span class="net">Dr Zagury</span>
+      <span class="f"><span class="fmt texte">Texte seul</span></span>
+      <span class="what">Reprise personnelle du manifeste.
+        <span class="med"><span class="mtag txt">Sans média</span>3 h après le post de la page</span></span></div>
+    <div class="slot"><span class="t">18h30</span><span class="net">X</span>
+      <span class="f"><span class="fmt thread">Thread</span></span>
+      <span class="what">6 tweets, image dans le tweet 1. À épingler.
+        <span class="med"><span class="mtag img">Image 16:9</span><code>01-manifeste-16x9.png</code></span></span></div>
+  </div>
+  <p><a href="plan.html#s1" class="chip">Voir les 28 jours →</a>
+     <a href="plan.html#stock" class="chip">Les 9 posts et leurs pièces →</a></p>
+</section>
+
+<section>
+  <h2><span class="num">4.</span> Où trouver quoi</h2>
+  <div class="tw"><table>
+    <thead><tr><th>Je cherche…</th><th>C'est ici</th></tr></thead>
+    <tbody>
+      <tr><td>Le texte d'un post à copier-coller</td><td><a href="plan.html">Plan</a> — déplié au jour où il sort</td></tr>
+      <tr><td>Quel visuel ou quelle vidéo publier quel jour</td><td><a href="plan.html#s1">Plan § Calendrier</a></td></tr>
+      <tr><td>Quel format sur quel réseau</td><td><a href="plan.html#formats">Plan § Les formats</a></td></tr>
+      <tr><td>L'inventaire des 9 posts et de leurs pièces</td><td><a href="plan.html#stock">Plan § Les 9 posts</a></td></tr>
+      <tr><td>La bio exacte d'un profil</td><td><a href="marque.html#bios">Marque § Bios</a></td></tr>
+      <tr><td>Les codes couleur et la typo</td><td><a href="marque.html#da">Marque § Direction artistique</a></td></tr>
+      <tr><td>Quelle vidéo est prête, laquelle ne l'est pas</td><td><a href="assets.html#videos-posts">Assets § Vidéos</a></td></tr>
+      <tr><td>Régénérer un visuel, une vidéo ou le plan</td><td><a href="assets.html#regen">Assets § Régénérer</a></td></tr>
+      <tr><td>La mécanique de production vidéo (API, ffmpeg)</td><td class="mono">system-prompt-codex.md</td></tr>
+    </tbody>
+  </table></div>
+  <div class="note">
+    <p><strong><code>system-prompt-codex.md</code> reste en Markdown</strong> et n'est pas résumé ici :
+    c'est un prompt système consommé par un agent, avec ses appels d'API, ses recettes ffmpeg et sa
+    bibliothèque d'animations. Ce n'est pas un document à lire, c'est un outil à exécuter.</p>
+  </div>
+</section>
+
+<section>
+  <h2><span class="num">5.</span> Règles fermes</h2>
+  <div class="banner">
+    <h3>Rien n'est publié sans validation explicite, pièce par pièce.</h3>
+    <p>Une autorisation donnée une fois ne vaut pas pour la suivante.</p>
+  </div>
+  <ul>
+    <li>Jamais de copier-coller d'un réseau à l'autre : le texte est réécrit pour chaque plateforme.</li>
+    <li>Toute vidéo doit être compréhensible <strong>son coupé</strong>.</li>
+    <li>Toute affirmation médicale est exacte, nuancée, sourcée. Un chiffre faux coûte plus cher que
+        dix posts ne rapportent.</li>
+    <li>Jamais de conseil médical individuel, sur aucun réseau, y compris en réponse à un commentaire.</li>
+    <li>Aucun HEX hors des 9 valeurs de la charte, aucun Inter 900, ombres dures uniquement.</li>
+  </ul>
+</section>
+
+<div class="foot">
+  <span>Médicilline · éditions médicales depuis 2002 · Amilly, France</span>
+  <span>medicilline.ai</span>
+  <span>Anciens documents dans <code>_archive/</code> — supprimable</span>
+</div>
+
+</div></body></html>

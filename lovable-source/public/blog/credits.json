@@ -1,0 +1,32 @@
+[
+  {
+    "file": "preuve-ia-medicale-photo.jpg",
+    "photographer": "Charlss GonzHu",
+    "url": "https://www.pexels.com/photo/body-images-on-computer-screen-in-hospital-15277956/",
+    "alt": "Medical imaging setup with MRI scans on multiple screens in a healthcare facility."
+  },
+  {
+    "file": "benchmark-examen-clinique-photo.jpg",
+    "photographer": "Yusuf Çelik",
+    "url": "https://www.pexels.com/photo/university-students-in-lecture-hall-with-books-31367511/",
+    "alt": "Group of diverse university students in a bright lecture hall, studying language education."
+  },
+  {
+    "file": "verifier-reference-ia-photo.jpg",
+    "photographer": "Yan Krukau",
+    "url": "https://www.pexels.com/photo/a-man-looking-for-a-book-in-a-library-8199764/",
+    "alt": "Young man wearing glasses studying intently between library shelves filled with books."
+  },
+  {
+    "file": "compte-rendu-omission-photo.jpg",
+    "photographer": "SHVETS production",
+    "url": "https://www.pexels.com/photo/a-person-taking-notes-while-talking-to-the-patient-8413183/",
+    "alt": "Medical professional writing patient notes on clipboard during consultation."
+  },
+  {
+    "file": "ouvrage-augmente-photo.jpg",
+    "photographer": "Tima Miroshnichenko",
+    "url": "https://www.pexels.com/photo/stethoscope-and-notebook-on-desk-5407246/",
+    "alt": "Flat lay of medical tools and supplies on a wooden desk surface."
+  }
+]

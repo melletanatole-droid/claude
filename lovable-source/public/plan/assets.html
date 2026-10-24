@@ -1,0 +1,392 @@
+<!doctype html><html lang="fr"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Assets — visuels, vidéos, fichiers</title>
+<link rel="stylesheet" href="_doc.css"></head><body>
+
+<nav class="nav"><div class="in">
+  <span class="brand"><img src="posts-retour/visuels/img/avatar.png" alt="">Social Médicilline</span>
+  <a href="index.html">Tableau de bord</a>
+  <a href="marque.html">Marque &amp; DA</a>
+  <a href="plan.html">Plan</a>
+  <a href="assets.html" class="on">Assets</a>
+</div></nav>
+
+<div class="wrap">
+
+<div class="hero">
+  <div class="blob" style="background:var(--orange);"></div>
+  <span class="eyebrow">L'inventaire</span>
+  <h1>Ce qui est prêt,<br>ce qui ne l'est pas.</h1>
+  <p class="lead">18 visuels, 18 maquettes, <strong>18 vidéos dont 9 neuves</strong> — une par post.
+  Avec l'origine de chaque asset, les sources factuelles utilisées, et les commandes pour tout
+  régénérer. Depuis l'abandon d'Instagram, chaque visuel n'a plus que deux exports au lieu de trois.</p>
+</div>
+
+<div class="toc"><h4>Sommaire</h4><ol>
+  <li><a href="#visuels">Les 9 visuels de posts</a></li>
+  <li><a href="#maquettes">Les maquettes de rendu</a></li>
+  <li><a href="#videos-posts">Les 9 vidéos de posts</a></li>
+  <li><a href="#videos">Les autres vidéos</a></li>
+  <li><a href="#img">Couvertures et logos</a></li>
+  <li><a href="#newsletter">Visuels newsletter réutilisables</a></li>
+  <li><a href="#sources">Sources factuelles</a></li>
+  <li><a href="#regen">Régénérer</a></li>
+</ol></div>
+
+<section id="visuels">
+  <h2><span class="num">1.</span> Les 9 visuels de posts</h2>
+  <p>Un fichier HTML par visuel dans <code>posts-retour/visuels/</code>. Il bascule tout seul en mise en
+  page horizontale au-dessus du ratio 1:1 — les deux formats sans dupliquer le code.</p>
+
+  <div class="grid g3">
+    <div class="thumb"><img src="posts-retour/export/01-manifeste-4x5.png" alt=""><div class="c"><b>1 · Le manifeste</b><span>Affiche typographique. Hook d'ouverture, à épingler.</span></div></div>
+    <div class="thumb"><img src="posts-retour/export/02-avant-apres-4x5.png" alt=""><div class="c"><b>2 · Un livre peut être coloré</b><span>Manuel classique vs livre Médicilline. Le contraste le plus lisible de la série.</span></div></div>
+    <div class="thumb"><img src="posts-retour/export/03-livres-4x5.png" alt=""><div class="c"><b>3 · Ce qu'on publie</b><span>Les deux titres + l'écart 92 / 44,8.</span></div></div>
+    <div class="thumb"><img src="posts-retour/export/04-logo-4x5.png" alt=""><div class="c"><b>4 · Le logo</b><span>Ancien / nouveau. Se comprend en 2 secondes.</span></div></div>
+    <div class="thumb"><img src="posts-retour/export/05-axes-4x5.png" alt=""><div class="c"><b>5 · Le tableau des axes</b><span>Le plus sauvegardé sur LinkedIn.</span></div></div>
+    <div class="thumb"><img src="posts-retour/export/06-catalogue-4x5.png" alt=""><div class="c"><b>6 · Retenir → trier</b><span>Les 4 vraies couvertures, 1994 → 2026.</span></div></div>
+    <div class="thumb"><img src="posts-retour/export/07-ecart-4x5.png" alt=""><div class="c"><b>7 · 47 points d'écart</b><span>Graphique à barres. Crédibilité data.</span></div></div>
+    <div class="thumb"><img src="posts-retour/export/08-ai-act-4x5.png" alt=""><div class="c"><b>8 · Le calendrier de l'AI Act</b><span>Frise. Le plus partagé entre confrères.</span></div></div>
+    <div class="thumb"><img src="posts-retour/export/09-grille-4x5.png" alt=""><div class="c"><b>9 · Où mettre l'IA</b><span>Matrice 2×2. Déclenche le débat en commentaires.</span></div></div>
+  </div>
+
+  <h3>Les deux exports par visuel</h3>
+  <div class="tw"><table>
+    <thead><tr><th class="mono">Suffixe</th><th>Taille</th><th>Réseau</th></tr></thead>
+    <tbody>
+      <tr><td class="mono">-4x5.png</td><td>1200 × 1500</td><td>LinkedIn</td></tr>
+      <tr><td class="mono">-16x9.png</td><td>1600 × 900</td><td>X</td></tr>
+    </tbody>
+  </table></div>
+  <div class="note ok"><p><strong>Les exports <code>-ig-1080x1350</code> ne sont plus produits</strong>
+  — Instagram est abandonné. Les anciens sont dans <code>_archive/rendus-intermediaires/</code>
+  et se refabriquent en une commande si la décision est un jour revue.</p></div>
+  <div class="note"><p><strong>Contrôle avant publication.</strong>
+  <code>python scripts/check_visuels.py</code> rend les 9 visuels dans les deux ratios et signale
+  tout texte tronqué. C'est ce contrôle qui a rattrapé trois quadrants coupés dans le 16:9 du
+  post 9 et le sous-titre coupé du bandeau du post 1.</p></div>
+</section>
+
+<section id="maquettes">
+  <h2><span class="num">2.</span> Les maquettes de rendu</h2>
+  <p>18 aperçus dans <code>posts-retour/export/mockups/</code> : le visuel <strong>à côté du texte</strong>,
+  dans une interface LinkedIn ou X simplifiée. Sert à valider un post avant publication et à le montrer
+  à un tiers sans passer par la plateforme.</p>
+  <div class="grid g2">
+    <div class="thumb"><img src="posts-retour/export/mockups/mockup-li-05-axes.png" alt=""><div class="c"><b>LinkedIn</b><span>Avatar, nom de page, texte avant le pli, visuel 4:5, barre d'actions.</span></div></div>
+    <div class="thumb"><img src="posts-retour/export/mockups/mockup-x-07-ecart.png" alt=""><div class="c"><b>X</b><span>Handle, texte court, visuel 16:9, compteurs.</span></div></div>
+  </div>
+  <p>Ce ne sont <strong>pas</strong> des assets à publier. Régénération :
+  <code>python 08_automation-social/posts-retour/mockups/build.py</code></p>
+</section>
+
+
+<section id="videos-posts">
+  <h2><span class="num">3.</span> Les 9 vidéos de posts</h2>
+  <p>Une vidéo par post, dans <code>videos/out/</code>. <strong>4:5, 1080 × 1350</strong> — le seul
+  format qui passe nativement sur LinkedIn <i>et</i> sur X sans recadrage. 27 à 40 secondes, montage
+  de publicité : des plans de 1,3 à 2,8 s, jamais deux fonds identiques à la suite, un sous-titre
+  incrusté sur chaque plan. Chacune se termine sur le <strong>carton de logo</strong> puis
+  <code>medicilline.ai</code>. Poster fourni.</p>
+  <div class="grid g2">
+    <div class="card">
+      <h3>Aucun fond sombre</h3>
+      <p>Les fonds sont les six de la charte : <span class="sw" style="background:var(--creme)"></span>crème,
+      <span class="sw" style="background:var(--jaune)"></span>jaune,
+      <span class="sw" style="background:var(--violet)"></span>violet,
+      <span class="sw" style="background:var(--bleu)"></span>bleu,
+      <span class="sw" style="background:var(--orange)"></span>orange et le dégradé.
+      L'encre ne sert plus qu'au texte, aux bordures et aux ombres dures — <strong>y compris la
+      boîte de sous-titre, désormais blanche à bordure encre</strong> au lieu d'un aplat noir.</p>
+    </div>
+    <div class="card">
+      <h3>Deux pièces de données par vidéo</h3>
+      <p>Chaque film s'arrête sur la pièce qui démontre le post (courbe, barres, frise, matrice,
+      comparatif, checklist, mécanisme), puis — juste avant la chute — sur une <strong>carte de
+      chiffres clés</strong> (<code>kpi</code> ou <code>stat</code>) qui récapitule les chiffres.
+      Elles ne sont pas dessinées à la main : elles sortent de <code>videos/graphiques.py</code>,
+      qui appelle <code>scripts/medi_viz</code>, le moteur des visuels de newsletter. Elles
+      portent leur titre et leur source, donc elles n'ont pas de sous-titre.</p>
+    </div>
+    <div class="card">
+      <h3>Le logo, en permanence</h3>
+      <p>Un <strong>bandeau de coin</strong> — pastille blanche à bordure encre, livre ouvert et
+      signature — sur tous les plans, cartes plein cadre comprises ; et le <strong>verrouillage
+      complet</strong>, baseline incluse, sur le carton de fin. Les deux pièces sont découpées du
+      fichier de marque par <code>videos/marque.py</code> : le logo n'est jamais redessiné en CSS
+      ni régénéré en image.</p>
+    </div>
+    <div class="card">
+      <h3>Quatre vidéos sont dites</h3>
+      <p><strong>01, 04, 07 et 09</strong> portent une voix off (ElevenLabs, voix <code>george</code>)
+      qui dit <em>exactement</em> le sous-titre du plan : même mot, même moment, pour que le film
+      tienne son coupé comme allumé. Une piste par plan, calée sur le début du plan — et c'est le
+      plan qui s'allonge pour laisser la phrase finir. Les cartes restent muettes.
+      <strong>Plan gratuit : aucun droit commercial</strong> — à publier seulement avec un plan Starter.</p>
+    </div>
+  </div>
+  <div class="grid g3">
+    <div class="thumb"><img src="videos/out/01-manifeste-poster.jpg" alt=""><div class="c"><b>1 · Le manifeste</b><span>2002 &rarr; 29 titres &rarr; tout repris à zéro. La plus narrative.</span></div></div>
+    <div class="thumb"><img src="videos/out/07-ecart-poster.jpg" alt=""><div class="c"><b>7 · 47 points d'écart</b><span>Deux barres animées, puis la limite. La plus démonstrative.</span></div></div>
+    <div class="thumb"><img src="videos/out/08-ai-act-poster.jpg" alt=""><div class="c"><b>8 · Le calendrier de l'AI Act</b><span>Une échéance par plan. La plus utile.</span></div></div>
+  </div>
+  <div class="tw"><table>
+    <thead><tr><th class="mono">Fichier</th><th>Durée</th><th>Voix</th><th>Ce qu'elle démontre</th><th>Pièces medi_viz</th><th>Sortie</th></tr></thead>
+    <tbody>
+      <tr><td class="mono">01-manifeste.mp4</td><td>39 s</td><td>oui</td><td>2002, 29 titres, la bascule, les deux livres</td><td class="mono">kpi</td><td>J2</td></tr>
+      <tr><td class="mono">02-avant-apres.mp4</td><td>28 s</td><td>—</td><td>le manuel de 872 pages contre le livre qu'on ouvre en consultation</td><td class="mono">compare + kpi</td><td>J9</td></tr>
+      <tr><td class="mono">03-livres.mp4</td><td>29 s</td><td>—</td><td>92 / 44,8, la courbe des publications, les deux couvertures</td><td class="mono">line + kpi</td><td>J16</td></tr>
+      <tr><td class="mono">04-logo.mp4</td><td>40 s</td><td>oui</td><td>ancien logo, nouveau logo, et pourquoi la question a changé</td><td class="mono">checklist + kpi</td><td>J6</td></tr>
+      <tr><td class="mono">05-axes.mp4</td><td>30 s</td><td>—</td><td>les cinq axes, un par plan</td><td class="mono">compare + kpi</td><td>J25</td></tr>
+      <tr><td class="mono">06-catalogue.mp4</td><td>28 s</td><td>—</td><td>30 000 exemplaires, « retenir » &rarr; « trier »</td><td class="mono">timeline + kpi</td><td>J13</td></tr>
+      <tr><td class="mono">07-ecart.mp4</td><td>39 s</td><td>oui</td><td>les deux barres, le mécanisme, les 47 points</td><td class="mono">bar + flow + stat</td><td>J18</td></tr>
+      <tr><td class="mono">08-ai-act.mp4</td><td>27 s</td><td>—</td><td>2 août 2026, 2 décembre 2026, les reports</td><td class="mono">timeline + kpi</td><td>J12</td></tr>
+      <tr><td class="mono">09-grille.mp4</td><td>38 s</td><td>oui</td><td>la matrice, la règle, les trois chiffres</td><td class="mono">matrix + kpi</td><td>J23</td></tr>
+    </tbody>
+  </table></div>
+  <div class="note ok"><p><strong>Régénérer.</strong> Une fois les pièces de marque
+  (<code>python 08_automation-social/videos/marque.py</code>) et les graphiques
+  (<code>python 08_automation-social/videos/graphiques.py</code>) en place, les films
+  (<code>python 08_automation-social/videos/build_videos.py 07</code> pour un seul,
+  sans argument pour les neuf, <code>--muet</code> pour couper la voix off). Le storyboard est du
+  Python lisible en haut de <code>build_videos.py</code> : une liste de plans
+  <code>(durée, fond, HTML, sous-titre)</code>, et <code>carte("v07-bar")</code> pour insérer une
+  pièce. Modifier un texte = modifier une ligne. Compter environ deux minutes et demie par vidéo.
+  Les pistes de voix déjà produites ne sont jamais rappelées à l'API : seule une phrase réécrite
+  en consomme une nouvelle.</p></div>
+  <div class="note warn"><p><strong>Ce que ces vidéos ne sont pas.</strong> Il n'y a pas d'images
+  réelles : ce sont des cartons et des graphiques animés à la charte, faits pour le fil. Quatre
+  d'entre elles ont une voix off, les cinq autres non — toutes se comprennent le son coupé. Pour
+  du tourné, ce sont les cinq publicités ci-dessous.</p></div>
+
+  <h3>Les 18 graphiques</h3>
+  <p>Dans <code>videos/graphiques/</code>, au format <code>portrait</code> (1080 × 1350, rendu en
+  2160 × 2700). Ce sont des specs JSON, pas des images dessinées : le type, les données et la
+  source sont dans <code>videos/graphiques.py</code>, et le rendu passe par le contrôle de charte
+  de <code>medi_viz</code> — une couleur hors palette ou une ombre floutée fait échouer le
+  rendu au lieu de sortir un fichier hors marque.</p>
+  <div class="tw"><table>
+    <thead><tr><th class="mono">Nom</th><th class="mono">Type</th><th>Ce qu'il montre</th><th>Source</th></tr></thead>
+    <tbody>
+      <tr><td class="mono">v01-maison</td><td class="mono">kpi</td><td>2002 · 29 titres · 2 titres en septembre</td><td>catalogue Médicilline</td></tr>
+      <tr><td class="mono">v02-usage</td><td class="mono">compare</td><td>le manuel de 872 p. contre le livre de 30 min/j</td><td>note de repositionnement</td></tr>
+      <tr><td class="mono">v03-litterature</td><td class="mono">line</td><td>419 → 46 504 publications IA-santé, 2016 → 2025</td><td>OpenAlex, 31 août 2026</td></tr>
+      <tr><td class="mono">v04-logo-disait</td><td class="mono">checklist</td><td>ce que l'ancien logo disait, et ne disait pas</td><td>note de repositionnement</td></tr>
+      <tr><td class="mono">v05-axes</td><td class="mono">compare</td><td>les cinq axes, avant / maintenant</td><td>note de repositionnement</td></tr>
+      <tr><td class="mono">v06-catalogue</td><td class="mono">timeline</td><td>1994 → 2026, de « retenir » à « trier »</td><td>catalogue Médicilline</td></tr>
+      <tr><td class="mono">v07-bar</td><td class="mono">bar</td><td>92 % contre 44,8 %, même modèle</td><td>Nature Medicine, 28 juillet 2026</td></tr>
+      <tr><td class="mono">v07-mecanisme</td><td class="mono">flow</td><td>recueillir → écarter → hiérarchiser → répondre</td><td>Nature Medicine, 28 juillet 2026</td></tr>
+      <tr><td class="mono">v08-calendrier</td><td class="mono">timeline</td><td>les quatre échéances de l'AI Act</td><td>AI Act art. 50 · DSIH</td></tr>
+      <tr><td class="mono">v09-matrice</td><td class="mono">matrix</td><td>la grille risque / gain, quatre quadrants</td><td>grille éditoriale assumée</td></tr>
+      <tr><td class="mono">v02-chiffres</td><td class="mono">kpi</td><td>872 p. · 30 min/j · 29 titres</td><td>note de repositionnement · catalogue</td></tr>
+      <tr><td class="mono">v03-chiffres</td><td class="mono">kpi</td><td>× 111 publications · 92 % · 44,8 %</td><td>OpenAlex · Nature Medicine</td></tr>
+      <tr><td class="mono">v04-chiffres</td><td class="mono">kpi</td><td>2002 · 24 ans · 2026</td><td>note de repositionnement</td></tr>
+      <tr><td class="mono">v05-chiffres</td><td class="mono">kpi</td><td>5 axes déplacés · 0 changement de charte · 24 ans</td><td>note de repositionnement</td></tr>
+      <tr><td class="mono">v06-chiffres</td><td class="mono">kpi</td><td>1994 · 666 astuces · 30 000 exemplaires</td><td>catalogue Médicilline</td></tr>
+      <tr><td class="mono">v07-chiffres</td><td class="mono">stat</td><td>47 points d'écart, plein cadre</td><td>Nature Medicine, 28 juillet 2026</td></tr>
+      <tr><td class="mono">v08-chiffres</td><td class="mono">kpi</td><td>2 août 2026 · 2 déc. 2026 · 2 reports</td><td>AI Act art. 50 · DSIH</td></tr>
+      <tr><td class="mono">v09-chiffres</td><td class="mono">kpi</td><td>2 axes · 4 quadrants · 1 règle</td><td>grille éditoriale assumée</td></tr>
+    </tbody>
+  </table></div>
+  <div class="note"><p><strong>Le moteur connaît d'autres types que ceux-là</strong> —
+  <code>stat</code>, <code>donut</code>, <code>waffle</code>, <code>slope</code>,
+  <code>steps</code>, <code>mindmap</code>, <code>funnel</code>, <code>livre</code>,
+  <code>citation</code>, <code>annonce</code>. Un gabarit valide par type est dans
+  <code>scripts/medi_viz/exemples.py</code> : pour ajouter une pièce, copier le gabarit,
+  remplacer les données et la source, l'ajouter à <code>SPECS</code>.</p></div>
+</section>
+
+<section id="videos">
+  <h2><span class="num">4.</span> Les autres vidéos</h2>
+  <p><strong>Aucune n'est validée.</strong> Les cinq publicités sont dans <code>pub fini/à valider/</code>,
+  les dossiers <code>validé/</code> et <code>refusé/</code> sont vides.</p>
+
+  <h3>Les cinq publicités 9:16 — le format social par défaut</h3>
+  <p>1080 × 1920, 30 fps, <strong>30 s exactement</strong>, montage publicitaire (plans courts, coupes sur
+  la grille musicale), charte respectée, son présent. Chacune finit sur un CTA newsletter ou un QR.</p>
+  <div class="tw"><table>
+    <thead><tr><th>Fichier</th><th>Angle</th><th>Accroche (0–2 s)</th><th>Chute</th></tr></thead>
+    <tbody>
+      <tr><td class="mono">pub medicilline 3</td><td><b>L'histoire de la maison</b></td><td>« 2002 » → « 2012 » → « ECNi. Internat. PACES. »</td><td>« Alors on a rouvert la maison. » → CTA newsletter</td></tr>
+      <tr><td class="mono">pub medicilline 4</td><td><b>Avant / après éditorial</b></td><td>« Nos livres étaient tristes. »</td><td>« 244 pages. Zéro page grise. » → panorama de l'offre</td></tr>
+      <tr><td class="mono">pub medicilinne 1</td><td><b>La nouvelle façon d'éditer</b></td><td>« On ne publie plus des livres. »</td><td>« Là où l'IA se trompe. » → « Un concept. Une double page. »</td></tr>
+      <tr><td class="mono">pub medicilline 2</td><td><b>Les deux titres</b></td><td>« La médecine du futur ne s'apprend pas en 800 pages. »</td><td>« 18+ prompts » → « 100 % visuel » → « Les deux titres arrivent »</td></tr>
+      <tr><td class="mono">pub 5</td><td><b>Le changement d'identité</b></td><td>« Le siècle d'avant — pendant 24 ans… »</td><td>ancien logo → nouveau logo → <b>QR code</b></td></tr>
+    </tbody>
+  </table></div>
+  <div class="note"><p><strong>Ordre de diffusion : 3 → 4 → 1 → 2 → 5.</strong> On commence par l'histoire,
+  c'est ce qui rend le reste crédible ; on finit par le QR, le plus transactionnel, qui ne fonctionne
+  qu'une fois l'audience acquise.<br>
+  Pour LinkedIn, un dérivé <b>4:5 (1080 × 1350)</b> performe mieux que le 9:16 plein — recadrage centré,
+  les titres sont déjà dans la zone sûre.</p></div>
+
+  <h3>Le trailer de marque 16:9</h3>
+  <p><code>trailer/out/trailer-maison-medicilline.mp4</code> — 1920 × 1080, 25 fps, <b>1 min 10</b>.
+  Registre cinéma : cadre 2.39:1, plans de 1,8 à 13,5 s, aucun sous-titre. Dix plans, de l'héritage
+  (« Depuis 2002, nous imprimons la médecine », compteurs 24 ans / 29 titres / 666 astuces) au manifeste
+  final (« Nous formons les médecins de demain à l'IA »). Poster fourni.</p>
+  <div class="note warn"><p><strong>Ce film n'est pas fait pour le feed.</strong> 1 min 10 avec des plans
+  de 13 s s'endort dans un fil d'actualité. Sa place : page d'accueil, email de bienvenue, présentation
+  client. S'il doit sortir sur le social, ce sera en vidéo LinkedIn native avec le poster en vignette et
+  un texte qui annonce sa durée. Prévu au jour 20.</p></div>
+
+  <h3>Le trailer vertical</h3>
+  <p><code>trailer/trailer-changement/out/trailer-medicilline.mp4</code> — 1080 × 1920, 37,6 s,
+  sous-titres incrustés, B-rolls réels.</p>
+  <div class="note warn"><p><strong>Hors charte, à ne pas publier en l'état.</strong> Fond sombre, néons
+  roses, halos flous : il ne suit ni la palette crème/encre, ni les ombres dures, ni la typographie. Il
+  annonce aussi « depuis 20 ans », ce qui contredit les 2002 des autres films. Deux options : le remonter
+  à la charte, ou le garder comme archive de la phase de recherche — les 5 publicités le remplacent
+  avantageusement.</p></div>
+
+  <h3>La vidéo pédagogique newsletter</h3>
+  <p><code>newsletter/assets/demain-ecart-examen-clinique.mp4</code> — 1920 × 1080, <b>1 min 48</b>.
+  Registre pédagogique : réponse donnée dans les 25 premières secondes, plans de 6 à 10 s, section
+  « limites ». Même sujet que le post 7.</p>
+  <p><strong>Ne pas la publier telle quelle sur le social.</strong> En extraire une découpe de 40 s
+  sur le seul mécanisme de l'écart (jour 18), et un thread X de 5–7 tweets.</p>
+
+  <h3>Récapitulatif technique</h3>
+  <div class="tw"><table>
+    <thead><tr><th>Fichier</th><th>Format</th><th>Durée</th><th>Statut</th></tr></thead>
+    <tbody>
+      <tr><td class="mono">pub medicilline 3</td><td>1080×1920 · 30 fps</td><td>30,0 s</td><td><span class="badge">à valider</span></td></tr>
+      <tr><td class="mono">pub medicilline 4</td><td>1080×1920 · 30 fps</td><td>30,0 s</td><td><span class="badge">à valider</span></td></tr>
+      <tr><td class="mono">pub medicilinne 1</td><td>1080×1920 · 30 fps</td><td>30,0 s</td><td><span class="badge">à valider</span></td></tr>
+      <tr><td class="mono">pub medicilline 2</td><td>1080×1920 · 30 fps</td><td>30,0 s</td><td><span class="badge">à valider</span></td></tr>
+      <tr><td class="mono">pub 5</td><td>1080×1920 · 30 fps</td><td>30,0 s</td><td><span class="badge">à valider</span></td></tr>
+      <tr><td class="mono">trailer-maison-medicilline</td><td>1920×1080 · 25 fps</td><td>1 min 10</td><td><span class="badge blue">prêt — hors feed</span></td></tr>
+      <tr><td class="mono">trailer-medicilline (vertical)</td><td>1080×1920 · 30 fps</td><td>37,6 s</td><td><span class="badge rose">hors charte</span></td></tr>
+      <tr><td class="mono">demain-ecart-examen-clinique</td><td>1920×1080 · 25 fps</td><td>1 min 48</td><td><span class="badge blue">prêt — newsletter</span></td></tr>
+    </tbody>
+  </table></div>
+
+  <h3>Ce qui manque</h3>
+  <div class="tw"><table>
+    <thead><tr><th>Manque</th><th>Pourquoi ça compte</th></tr></thead>
+    <tbody>
+      <tr><td>Dérivés <b>4:5</b> des 5 publicités</td><td>sur LinkedIn le 9:16 est rogné, le 4:5 occupe plus de surface dans le fil</td></tr>
+      <tr><td>Vérification <b>son coupé</b></td><td>tout doit fonctionner en muet, sous-titres incrustés compris</td></tr>
+      <tr><td><b>Découpe de 40 s</b> de la vidéo newsletter</td><td>le contenu existe déjà, seul le montage manque — prévue au jour 18</td></tr>
+      <tr><td>Vignettes personnalisées <b>des 5 publicités</b></td><td>une frame arbitraire en vignette perd de la vue avant même le clic. Les 9 vidéos de posts, elles, ont leur poster.</td></tr>
+    </tbody>
+  </table></div>
+</section>
+
+<section id="img">
+  <h2><span class="num">5.</span> Couvertures et logos</h2>
+  <p>Tout est copié dans <code>posts-retour/visuels/img/</code> — rien à aller chercher ailleurs.</p>
+  <div class="tw"><table>
+    <thead><tr><th class="mono">Fichier</th><th>Contenu</th><th>Origine</th></tr></thead>
+    <tbody>
+      <tr><td class="mono">avatar.png</td><td>mot-symbole carré 1000 × 1000, pour les 3 profils</td><td>découpé du logo actuel</td></tr>
+      <tr><td class="mono">logo-ancien.png</td><td>ancien logo turquoise</td><td><code>social-video/assets/</code></td></tr>
+      <tr><td class="mono">logo-nouveau.jpg</td><td>logo actuel, livre ouvert + IA</td><td><code>03_design/logo médicilinne/</code></td></tr>
+      <tr><td class="mono">logo.jpg</td><td>logo compact, barre de marque des visuels</td><td><code>newsletter/assets/</code></td></tr>
+      <tr><td class="mono">ancien-medi-memo.png</td><td>couverture <i>Médi Mémo Minute</i></td><td>extraite du PDF catalogue</td></tr>
+      <tr><td class="mono">ancien-covid.png</td><td>couverture <i>COVID sans frontière</i></td><td>extraite du PDF catalogue</td></tr>
+      <tr><td class="mono">ia-minute-front.png</td><td>couverture <i>IA Minute</i></td><td>recadrée du fichier 1+4</td></tr>
+      <tr><td class="mono">digidoc-front.png</td><td>couverture <i>DigiDoc 2030</i></td><td><code>couverture livre/</code></td></tr>
+    </tbody>
+  </table></div>
+</section>
+
+<section id="newsletter">
+  <h2><span class="num">6.</span> Visuels newsletter réutilisables</h2>
+  <p>Déjà conformes à la charte, déjà sourcés. Dans <code>newsletter/assets/</code>. Un schéma de
+  newsletter est un post LinkedIn ou une page de carrousel PDF sans travail supplémentaire.</p>
+  <div class="tw"><table>
+    <thead><tr><th class="mono">Fichier</th><th>Contenu</th><th>Réutilisation sociale</th></tr></thead>
+    <tbody>
+      <tr><td class="mono">demain-…-schema.png</td><td>le mécanisme de l'écart examen / clinique</td><td>pages 2-3 du carrousel PDF du post 7</td></tr>
+      <tr><td class="mono">demain-…-kpi.png</td><td>les chiffres clés</td><td>tweet illustré, post image</td></tr>
+      <tr><td class="mono">demain-…-publications.png</td><td>volume de publications</td><td>slide de contexte</td></tr>
+      <tr><td class="mono">demain-…-poster.jpg</td><td>poster cliquable de la vidéo</td><td>vignette LinkedIn</td></tr>
+      <tr><td class="mono">actu-ai-act-…-schema.png</td><td>schéma AI Act</td><td>complément du post 8</td></tr>
+      <tr><td class="mono">pratique-…-schema.png</td><td>les 3 gestes de conformité</td><td>carrousel PDF « ce qu'il faut dire au patient » (jour 24)</td></tr>
+      <tr><td class="mono">*-photo.jpg</td><td>photos Pexels recadrées 1200 × 675</td><td>vignettes, fonds de carte</td></tr>
+    </tbody>
+  </table></div>
+</section>
+
+<section id="sources">
+  <h2><span class="num">7.</span> Sources factuelles</h2>
+  <p>Toutes tirées des newsletters déjà produites ou des documents du projet. <strong>Rien n'a été
+  inventé.</strong> Les sources sont imprimées <strong>dans les visuels</strong>, pas seulement en
+  légende — c'est ce qui distingue un post d'éditeur médical d'un post d'agence.</p>
+  <div class="tw"><table>
+    <thead><tr><th>Fait</th><th>Source</th><th>Où</th></tr></thead>
+    <tbody>
+      <tr><td>92 % à l'examen / 44,8 % en clinique, 47 points d'écart</td><td>Nature Medicine, 28 juillet 2026</td><td>posts 3 et 7</td></tr>
+      <tr><td>Transparence AI Act applicable depuis le 2 août 2026</td><td>Règlement UE art. 50 · DSIH, 4 août 2026</td><td>posts 8 et 9</td></tr>
+      <tr><td>Sursis de marquage jusqu'au 2 décembre 2026</td><td>DSIH, 4 août 2026</td><td>post 8</td></tr>
+      <tr><td>Reports au 2 déc. 2027 et 2 août 2028, sous réserve de validation formelle</td><td>accord politique de simplification</td><td>post 8</td></tr>
+      <tr><td><i>Médi Mémo Minute</i> : 666 astuces, 30 000 exemplaires depuis 1994</td><td>catalogue « Déjà parus »</td><td>post 6</td></tr>
+      <tr><td><i>COVID sans frontière</i> : 2<sup>e</sup> éd., épuisé, préface Pr Ramanantsoa</td><td>catalogue « Déjà parus »</td><td>post 6</td></tr>
+    </tbody>
+  </table></div>
+  <div class="note warn"><p><strong>Deux réserves.</strong> Les chiffres de Nature Medicine méritent un
+  dernier contrôle à la source avant publication. Et la matrice du post 9 est <strong>une grille de
+  lecture, pas une donnée</strong> — c'est un cadre éditorial assumé, à défendre en commentaire, pas un
+  résultat d'étude.</p></div>
+  <div class="note ok"><p><strong>Date de fondation, réglée le 30 août 2026 : 2002, 29 titres, 24 ans.</strong>
+  Aligné sur ce que disaient déjà le trailer et les cinq films. Conséquence à ne pas oublier :
+  <i>Médi Mémo Minute</i> (1994) est <b>antérieur à la maison</b> — c'est le premier livre du Dr Zagury,
+  pas le premier livre de Médicilline. Ne jamais réintroduire un « notre premier best-seller » à propos
+  de ce titre.</p></div>
+</section>
+
+<section id="regen">
+  <h2><span class="num">8.</span> Régénérer</h2>
+  <h4>Un visuel, un format</h4>
+  <div class="copy"><div class="h">bash</div><div class="b">python scripts/render_visual.py --html 08_automation-social/posts-retour/visuels/05-axes.html --out 08_automation-social/posts-retour/export/05-axes-4x5.png --size 1200x1500 --scale 1</div></div>
+  <h4>Les deux formats d'un visuel — ou des neuf</h4>
+  <div class="copy"><div class="h">bash</div><div class="b">python 08_automation-social/posts-retour/build_visuels.py 05-axes</div></div>
+  <h4>Vérifier qu'aucun texte n'est tronqué</h4>
+  <div class="copy"><div class="h">bash</div><div class="b">python scripts/check_visuels.py</div></div>
+  <h4>Une vidéo de post — ou les neuf</h4>
+  <div class="copy"><div class="h">bash</div><div class="b">python 08_automation-social/videos/build_videos.py 09</div></div>
+  <h4>Les 18 maquettes</h4>
+  <div class="copy"><div class="h">bash</div><div class="b">python 08_automation-social/posts-retour/mockups/build.py</div></div>
+  <h4>Remettre le plan à jour après n'importe laquelle de ces commandes</h4>
+  <div class="copy"><div class="h">bash</div><div class="b">python 08_automation-social/build_plan.py</div></div>
+
+  <h3>Arborescence</h3>
+  <div class="card"><pre style="font-family:ui-monospace,Consolas,monospace;font-size:13.5px;line-height:1.7;margin:0;overflow-x:auto;">08_automation-social/
+├─ index.html · marque.html · plan.html · assets.html
+├─ build_plan.py               génère plan.html
+├─ _plan_template.html         son gabarit
+├─ textes-posts.json           les textes des 9 posts — source unique
+├─ _doc.css                    socle des pages de doc
+├─ system-prompt-codex.md      prompt agent — reste en Markdown
+├─ _archive/                   supprimable : anciens .md + rendus intermédiaires
+├─ newsletter/                 3 tracks, assets, archive.json
+├─ trailer/                    trailer 16:9 + version verticale
+├─ videos/
+│  ├─ build_videos.py          les 9 storyboards
+│  ├─ medi-video.css           charte des vidéos 4:5
+│  └─ out/                     9 .mp4 + 9 posters
+└─ posts-retour/
+   ├─ build_visuels.py         les 2 formats des 9 visuels
+   ├─ visuels/   9 HTML + medi-post.css + img/
+   ├─ mockups/   build.py + template.css
+   └─ export/    18 PNG + mockups/ (18 PNG)</pre></div>
+</section>
+
+<div class="foot">
+  <span>Médicilline · éditions médicales depuis 2002</span>
+  <span><a href="plan.html">← Plan</a></span>
+  <span><a href="index.html">Tableau de bord →</a></span>
+</div>
+
+</div>
+<script>
+document.querySelectorAll('.copy .h').forEach(h=>{
+  const b=document.createElement('button');b.textContent='Copier';h.appendChild(b);
+  b.onclick=()=>{const t=h.parentElement.querySelector('.b').innerText;
+    const ta=document.createElement('textarea');ta.value=t;document.body.appendChild(ta);ta.select();
+    try{document.execCommand('copy');b.textContent='Copié ✓';}catch(e){b.textContent='Ctrl+C';}
+    document.body.removeChild(ta);setTimeout(()=>b.textContent='Copier',1600);};
+});
+</script>
+</body></html>
