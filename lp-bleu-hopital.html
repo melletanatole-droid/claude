@@ -86,9 +86,9 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 /* hero */
 .hero{padding-block:36px 64px;position:relative;overflow:hidden;background:linear-gradient(to bottom, var(--paper) calc(100% - 140px), var(--sky-pale) calc(100% - 140px))}
 .hero .wrap{display:flex;flex-direction:column;gap:0;position:relative;z-index:1}
-.intro{display:grid;grid-template-columns:minmax(0,2fr) minmax(0,1fr);gap:20px 56px;align-items:end}
-.kicker{display:flex;align-items:center;gap:10px;font-size:12.5px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--blue);margin-bottom:16px;animation:fade .6s var(--ease-out) both}
-.kicker .pulse{width:8px;height:8px;border-radius:50%;background:var(--sun);box-shadow:0 0 0 0 color-mix(in srgb, var(--sun) 70%, transparent);animation:pulse 2.2s 1.2s infinite}
+.intro{display:flex;flex-direction:column;align-items:center;text-align:center}
+.kicker{display:block;text-wrap:balance;font-size:12.5px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--blue);margin-bottom:16px;animation:fade .6s var(--ease-out) both}
+.kicker .pulse{display:inline-block;vertical-align:middle;margin:-2px 10px 0 0;width:8px;height:8px;border-radius:50%;background:var(--sun);box-shadow:0 0 0 0 color-mix(in srgb, var(--sun) 70%, transparent);animation:pulse 2.2s 1.2s infinite}
 .headline{font-size:clamp(40px,5vw,72px);line-height:1;letter-spacing:-.028em;font-weight:600;color:var(--blue)}
 .headline .ln{display:block}
 .headline .w{display:inline-block;overflow:hidden;vertical-align:bottom;padding:0 .02em .12em;margin-bottom:-.12em}
@@ -96,9 +96,6 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 .headline em{font-style:italic;font-weight:500;color:var(--ink)}
 .headline .ia{display:inline-block;font-style:normal;background:var(--sun);border:var(--edge);border-radius:12px;padding:0 .16em;margin-left:.04em;box-shadow:var(--sh-blue);transform:rotate(-2deg);color:var(--blue);animation:pop .8s var(--ease-spring) both;animation-delay:.42s}
 .headline .dem>span{background:linear-gradient(var(--sun),var(--sun)) no-repeat 0 86%/0% .2em;animation:wordup .95s var(--ease-out) both, underline .9s var(--ease-out) forwards;animation-delay:calc(.12s + var(--i) * 70ms), 1.05s}
-.intro-r{display:flex;flex-direction:column;gap:22px;padding-bottom:6px;animation:rise .8s var(--ease-out) both;animation-delay:.55s}
-.intro-r .lead{font-size:17px;line-height:1.6;color:var(--ink)}
-.intro-r .lead strong{color:var(--blue);font-weight:600}
 .ecg{display:block;width:100%;height:auto;max-height:84px;margin:14px 0 18px;overflow:visible}
 .ecg .base{stroke:var(--line);stroke-width:1.5}
 .ecg .trace{fill:none;stroke:var(--blue);stroke-width:2;stroke-linejoin:round;stroke-linecap:round;stroke-dasharray:1;stroke-dashoffset:1;animation:draw 2.4s .7s cubic-bezier(.65,0,.35,1) forwards}
@@ -147,7 +144,8 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 .preview.swap .cap{animation-delay:.06s}
 .top{transition:box-shadow .3s}
 .top.scrolled{box-shadow:0 10px 30px -22px color-mix(in srgb, var(--blue) 70%, transparent)}
-@media (max-width:900px){.intro{grid-template-columns:minmax(0,1fr)}.intro-r{padding-bottom:0}.headline .ln{display:inline}}
+@media (max-width:900px){.headline .ln{display:inline}}
+@media (max-width:520px){.kicker{font-size:11px;letter-spacing:.12em}}
 @media (max-width:1000px){.ecg text{display:none}}
 @media (max-width:760px){.duo{grid-template-columns:minmax(0,1fr)}.ecg{display:none}.intro{margin-bottom:24px}.facts>span{padding-inline:10px}.facts small{font-size:12px}}
 
@@ -373,9 +371,6 @@ footer nav a:hover{color:var(--blue)}
             <span class="ln"><span class="w"><span style="--i:0">Le</span></span> <span class="w"><span style="--i:1">formateur</span></span> <span class="ia">IA</span> <span class="w"><span style="--i:2">de</span></span> <span class="w"><span style="--i:3">la</span></span></span>
             <span class="ln"><span class="w"><span style="--i:4"><em>Médecine</em></span></span> <span class="w"><span style="--i:5">de</span></span> <span class="w dem"><span style="--i:6">demain.</span></span></span>
           </h1>
-        </div>
-        <div class="intro-r">
-          <p class="lead">Nous <strong>publions des livres médicaux</strong> augmentés et nous <strong>formons les médecins à l'IA</strong>. Deux métiers, une même méthode : aller à l'essentiel et gagner du temps.</p>
         </div>
       </div>
       <svg class="ecg" viewBox="0 0 1200 110" preserveAspectRatio="none" aria-hidden="true">
